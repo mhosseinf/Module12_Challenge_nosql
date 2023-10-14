@@ -6,18 +6,21 @@ This repository contains Python code to import data from the "establishments.jso
 
 ## Part 1: Database and Jupyter Notebook Setup
 
-In this part, I set up the necessary dependencies and establish a connection to the MongoDB database.
+I set up the necessary dependencies in this part and established a connection to the MongoDB database.
 
 ### Import Dependencies
 
 I import essential dependencies to work with MongoDB and handle data efficiently. These dependencies include:
 - `pymongo`: The MongoDB Python driver for connecting to and interacting with the database.
 - `pprint`: A library to pretty print data structures for better readability.
-- `decimal`: Used to work with decimal data types.
+
+### Import data from JSON file in the Resource folder
+
+mongoimport --type json -d uk_food -c establishments --drop --jsonArray --file establishments.json
 
 ### Create an Instance of MongoClient
 
-I create an instance of the MongoClient to establish a connection to the MongoDB database. The `port` parameter specifies the port on which MongoDB is running.
+I created an instance of the MongoClient to establish a connection to the MongoDB database. The `port` parameter specifies the port on which MongoDB is running.
 
 ### Confirm Database and Collections
 
@@ -33,7 +36,7 @@ In this section, I demonstrate how to update the database by inserting a new res
 
 ### Insert a New Restaurant
 
-I create a dictionary for new restaurant data and insert it into the "establishments" collection using `insert_one`.
+the dictionary for new restaurant data was provided and inserted into the "establishments" collection using `insert_one`.
 
 ### Query the New Restaurant Data
 
@@ -41,11 +44,11 @@ I define a query to find the newly inserted restaurant in the collection and pri
 
 ### Finding BusinessTypeID
 
-I query the collection to find the "BusinessTypeID" for "Restaurant/Cafe/Canteen" and return specific fields using projection.
+I query the collection to find the "BusinessTypeID" for "Restaurant/Cafe/Canteen" and return specific fields using projection.('BusinessTypeID': 1, 'BusinessType': 1)
 
 ### Update BusinessTypeID
 
-I update the BusinessTypeID of the new restaurant to the correct value using `update_one`. This ensures data accuracy and consistency.
+I updated the BusinessTypeID of the new restaurant to the correct value using `update_one.
 
 ### Count Documents
 
@@ -57,22 +60,20 @@ I delete all documents where "LocalAuthorityName" is "Dover" using `delete_many`
 
 ### Check Remaining Documents
 
-I verify that other documents remain in the collection using `find_one`.
+I verified that other documents remain in the collection using `find_one`.
 
 ### Update Data Types
 
-I determine the data types of the "longitude" and "latitude" fields and change them from string to decimal for better compatibility.
+I determined the data types of the "longitude" and "latitude" fields and changed them from string to decimal for better compatibility.
 
 ### Set Non-Rating Values to Null
 
-I update non-rating values to `null` for better data integrity.
+I updated non-rating values to `null` for better data integrity.
 
 ### Change Data Type for RatingValue
 
-I change the data type of "RatingValue" from string to integer to ensure consistent data types.
+I changed the " RatingValue " data type from string to integer to ensure consistent data types.
 
 ### Check Data Type Changes
 
 I verify that the data type changes have been successfully applied to the coordinates and rating values.
-
-This code and README serve as a guide for importing, updating, and managing data in the "uk_food" database. You can adapt and use this code to handle similar data import and manipulation tasks in your MongoDB projects.
