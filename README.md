@@ -1,1 +1,78 @@
 # Module12_Challenge_nosql
+
+# Importing Data into uk_food Database
+
+This repository contains Python code to import data from the "establishments.json" file into the "uk_food" database. The data is stored in the "establishments" collection. This README provides an overview of the code and its functionalities.
+
+## Part 1: Database and Jupyter Notebook Setup
+
+In this part, we set up the necessary dependencies and establish a connection to the MongoDB database.
+
+### Import Dependencies
+
+We import essential dependencies to work with MongoDB and handle data efficiently. These dependencies include:
+- `pymongo`: The MongoDB Python driver for connecting to and interacting with the database.
+- `pprint`: A library to pretty print data structures for better readability.
+- `decimal`: Used to work with decimal data types.
+
+### Create an Instance of MongoClient
+
+We create an instance of the MongoClient to establish a connection to the MongoDB database. The `port` parameter specifies the port on which MongoDB is running.
+
+### Confirm Database and Collections
+
+We confirm the creation of the "uk_food" database and list the available databases and collections. This step is crucial for verifying that the database is correctly set up.
+
+### Review a Document in the "establishments" Collection
+
+We retrieve and print a document from the "establishments" collection to review its structure.
+
+## Part 2: Updating the Database
+
+In this section, we demonstrate how to update the database by inserting a new restaurant, querying data, and making updates.
+
+### Insert a New Restaurant
+
+We create a dictionary for new restaurant data and insert it into the "establishments" collection using `insert_one`.
+
+### Query the New Restaurant Data
+
+We define a query to find the newly inserted restaurant in the collection and print its details.
+
+### Finding BusinessTypeID
+
+We query the collection to find the "BusinessTypeID" for "Restaurant/Cafe/Canteen" and return specific fields using projection.
+
+### Update BusinessTypeID
+
+We update the BusinessTypeID of the new restaurant to the correct value using `update_one`. This ensures data accuracy and consistency.
+
+### Count Documents
+
+We count the number of documents with "LocalAuthorityName" as "Dover" to identify how many records match a specific criterion.
+
+### Delete Documents
+
+We delete all documents where "LocalAuthorityName" is "Dover" using `delete_many`.
+
+### Check Remaining Documents
+
+We verify that other documents remain in the collection using `find_one`.
+
+### Update Data Types
+
+We determine the data types of the "longitude" and "latitude" fields and change them from string to decimal for better compatibility.
+
+### Set Non-Rating Values to Null
+
+We update non-rating values to `null` for better data integrity.
+
+### Change Data Type for RatingValue
+
+We change the data type of "RatingValue" from string to integer to ensure consistent data types.
+
+### Check Data Type Changes
+
+We verify that the data type changes have been successfully applied to the coordinates and rating values.
+
+This code and README serve as a guide for importing, updating, and managing data in the "uk_food" database. You can adapt and use this code to handle similar data import and manipulation tasks in your MongoDB projects.
