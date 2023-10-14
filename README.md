@@ -1,22 +1,22 @@
 # Module12_Challenge_nosql
 
-# Importing Data into the uk_food Database
+# This repository contains 2 Jupyter Notebook codes. This README provides an overview of the code and its functionalities.
 
-This repository contains Python code to import data from the "establishments.json" file into the "uk_food" database. The data is stored in the "establishments" collection. This README provides an overview of the code and its functionalities.
 
-## Part 1: Database and Jupyter Notebook Setup
+# The 1st code imports data from the "establishments.json" file into the "uk_food" database. The data is stored in the "establishments" collection. 
 
-I set up the necessary dependencies in this part and established a connection to the MongoDB database.
+
+## Database Setup
+
+I imported data, set up the necessary dependencies in this part, and established a connection to the MongoDB database. Here is the associated code to import data:
+
+mongoimport --type json -d uk_food -c establishments --drop --jsonArray --file establishments.json
 
 ### Import Dependencies
 
 I import essential dependencies to work with MongoDB and handle data efficiently. These dependencies include:
 - `pymongo`: The MongoDB Python driver for connecting to and interacting with the database.
 - `pprint`: A library to pretty print data structures for better readability.
-
-### Import data from JSON file in the Resource folder
-
-mongoimport --type json -d uk_food -c establishments --drop --jsonArray --file establishments.json
 
 ### Create an Instance of MongoClient
 
@@ -30,9 +30,9 @@ I confirm the creation of the "uk_food" database and list the available database
 
 I retrieve and print a document from the "establishments" collection to review its structure.
 
-## Part 2: Updating the Database
+## Updating the Database
 
-In this section, I demonstrate how to update the database by inserting a new restaurant, querying data, and making updates.
+In this section, I demonstrated how to update the database by inserting a new restaurant, querying data, and making updates.
 
 ### Insert a New Restaurant
 
@@ -77,3 +77,32 @@ I changed the " RatingValue " data type from string to integer to ensure consist
 ### Check Data Type Changes
 
 I verify that the data type changes have been successfully applied to the coordinates and rating values.
+
+
+# The 2nd code uses MongoDB to update the "uk_food" database, specifically the "establishments" collection. This README provides an overview of the code and its functionalities.
+
+## Database Setup
+
+In this section, I establish a connection to the MongoDB database by creating an instance of MongoClient. I assign the "uk_food" database to a variable name `db`, review the collections in the database, and assign the "establishments" collection to a variable for further operations.
+
+## Querying the Database
+
+### Query Establishments by Hygiene Score
+
+I query the collection to find establishments with a hygiene score of 20. The result is displayed, and I use `count_documents` to determine the number of matching documents.
+
+### Convert to Pandas DataFrame
+
+The query result is converted into a Pandas DataFrame for data analysis. I display the number of rows in the DataFrame and the first 10 rows.
+
+### Query Establishments by Local Authority and RatingValue
+
+I find establishments within London as the Local Authority with a RatingValue greater than or equal to 4. Like the previous query, I display the results, convert them to a Pandas DataFrame, and display the number of rows and the first 10 rows.
+
+### Geographical Query
+
+I perform a geographical query within a specified range of latitude and longitude. The query looks for establishments with a RatingValue of 5, and the results are sorted by hygiene score. I print the results and convert them into a Pandas DataFrame, displaying the first 10 rows.
+
+### Aggregation Pipeline
+
+I create an aggregation pipeline to perform a series of operations on the data. The pipeline includes matching establishments with a hygiene score of 0, grouping the matches by Local Authority, and sorting them by count. The results are displayed, and converted into a Pandas DataFrame, and the number of rows and the first 10 rows are shown.
