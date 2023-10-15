@@ -97,12 +97,12 @@ The query result is converted into a Pandas DataFrame for data analysis. I displ
 
 ### Query Establishments by Local Authority and RatingValue
 
-I find establishments within London as the Local Authority with a RatingValue greater than or equal to 4. Like the previous query, I display the results, convert them to a Pandas DataFrame, and display the number of rows and the first 10 rows.
+I find establishments contain "London" in the Local Authority with a RatingValue greater than or equal to 4. Like the previous query, I display the results, convert them to a Pandas DataFrame, and display the number of rows and the first 10 rows.
 
 ### Geographical Query
 
-I perform a geographical query within a specified range of latitude and longitude. The query looks for establishments with a RatingValue of 5, and the results are sorted by hygiene score. I print the results and convert them into a Pandas DataFrame, displaying the first 10 rows.
+I perform a geographical query within 0.01 degree on either side of the latitude and longitude of Penang Flavours coordinate. The query looks for establishments with a RatingValue of 5, and the results are sorted by hygiene score. I print the results and convert them into a Pandas DataFrame, displaying the first 10 rows.
 
 ### Aggregation Pipeline
 
-I create an aggregation pipeline to perform a series of operations on the data. The pipeline includes matching establishments with a hygiene score of 0, grouping the matches by Local Authority, and sorting them by count. The results are displayed, and converted into a Pandas DataFrame, and the number of rows and the first 10 rows are shown.
+I create an aggregation pipeline to perform a series of operations on the data. The pipeline includes matching establishments with a hygiene score of 0, grouping the matches by Local Authority, and sorting them by count. The results are displayed and converted into a Pandas DataFrame, and the number of rows and the first 10 rows are shown.
